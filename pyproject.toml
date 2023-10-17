@@ -1,0 +1,131 @@
+[tool.poetry]
+name = "Python_Mini_Projects"
+version = "0.1.0"
+description = ""
+authors = ["tn <itdokata2307@gmail.com>"]
+readme = "README.md"
+packages = [{include = "poetry_wsl_demo"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+tqdm = "^4.66.1"
+isort = "^5.12.0"
+mypy = "^1.5.0"
+pylint = "^2.17.5"
+ruff = "^0.0.284"
+black = "^23.7.0"
+pytest = "^7.4.0"
+bandit = "^1.7.5"
+pipdeptree = "^2.12.0"
+icecream = "^2.1.3"
+poethepoet = "^0.21.1"
+taskipy = "^1.12.0"
+pathlib = "^1.0.1"
+pandas = "^2.0.3"
+polars = "^0.18.13"
+rich = "^13.5.2"
+scrapy = "^2.10.0"
+
+[tool.poetry.dev-dependencies]
+sphinx = "^7.1.2"
+sphinx-rtd-theme = "^1.2.2"
+sphinx-pyproject = "^0.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+# エラー時のメッセージを詳細表示
+show_error_context = true
+# エラー発生箇所の行数/列数を表示
+show_column_numbers = true
+# import 先のチェックを行わない (デフォルトだとサードパーティーライブラリまでチェックする)
+ignore_missing_imports = true
+# 関数定義の引数/戻り値に型アノテーション必須
+disallow_untyped_defs = true
+# デフォルト引数に None を取る場合型アノテーションに Optional 必須
+no_implicit_optional = true
+# 戻り値が Any 型ではない関数の戻り値の型アノテーションが Any のとき警告
+warn_return_any = true
+# mypy エラーに該当しない箇所に `# type: ignore` コメントが付与されていたら警告
+# ※ `# type: ignore` が付与されている箇所は mypy のエラーを無視出来る
+warn_unused_ignores = true
+# 冗長なキャストに警告
+warn_redundant_casts = true
+
+[tool.black]
+line-length = 79
+
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[project]
+name = "python-template"
+version = "0.1.0"
+description = "Python Project の Template"
+readme = "README.md"
+
+[[project.authors]]
+name = "jDBTISK"
+
+[tool.sphinx-pyproject]
+project = "python-template"
+copyright = "2023, jDBTISK"
+language = "en"
+package_root = "python-template"
+html_theme = "sphinx_rtd_theme"
+todo_include_todos = true
+templates_path = ["_templates"]
+html_static_path = ["_static"]
+extensions = [
+  "sphinx.ext.autodoc",
+  "sphinx.ext.viewcode",
+  "sphinx.ext.todo",
+  "sphinx.ext.napoleon",
+]
+[tool.ruff]
+target-version = "py310" # python-version
+src = ["src", "tests"] # ソースコードのあるディレクトリ
+select = ["ALL"] # 有効かするチェックの種類。ALLの場合は全て有効
+exclude = [".venv"] # チェックを除外するディレクトリ
+ignore = [ # 無視するエラーコード 
+    "G004", # `logging-f-string`
+    "PLC1901", # compare-to-empty-string
+    "PLR2004", # magic-value-comparison
+    "ANN101", # missing-type-self
+    "ANN102", # missing-type-cls
+    "ANN002", # missing-type-args
+    "ANN003", # missing-type-kwargs
+    "ANN401", # any-type
+    "ERA", # commented-out-code
+    "ARG002", # unused-method-argument
+    "INP001", # implicit-namespace-package
+    "PGH004", # blanket-noqa
+    "B008", # Dependsで使用するため
+    "A002", # builtin-argument-shadowing
+    "A003", # builtin-attribute-shadowing
+    "PLR0913", # too-many-arguments
+    "RSE", # flake8-raise
+    "D", # pydocstyle
+    "C90", # mccabe
+    "T20", # flake8-print
+    "SLF", #  flake8-self
+    "BLE", # flake8-blind-except
+    "FBT", # flake8-boolean-trap
+    "TRY", # tryceratops
+    "COM", # flake8-commas
+    "S", # flake8-bandit
+    "EM",#flake8-errmsg
+    "EXE", # flake8-executable
+    "ICN", # flake8-import-conventions
+    "RET",#flake8-return
+    "SIM",#flake8-simplify
+    "TCH", # flake8-type-checking
+    "PTH", #pathlibを使わないコードが多いので、除外する
+    "ISC", #flake8-implicit-str-concat
+    "N", # pep8-naming
+    "PT", # flake8-pytest-style
+]
+line-length = 120 # １行の最大文字数
