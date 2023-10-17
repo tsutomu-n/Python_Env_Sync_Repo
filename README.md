@@ -1,4 +1,4 @@
-# Python_Env_Sync_Repo（Python環境同期リポジトリ）
+# Python_Env_Sync_Repo
 
 ## 説明（Description）
 
@@ -12,21 +12,21 @@ A repository for syncing Python environment configurations and dependencies acro
 
 ### ステップ 1: リポジトリをクローン（Clone the Repository）
 
-\```bash
+```bash
 git clone git@github.com:tsutomu-n/Python_Env_Sync_Repo.git
-\```
+```
 
 ### ステップ 2: ディレクトリに移動（Navigate to the Directory）
 
-\```bash
+```bash
 cd Python_Env_Sync_Repo/backup_folder
-\```
+```
 
 ### ステップ 3: 復元スクリプトを実行（Run the Restore Script）
 
-\```bash
+```bash
 python restore_environment.py
-\```
+```
 
 このスクリプトは以下を行います（This script will）:
 
